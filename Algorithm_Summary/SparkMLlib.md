@@ -16,3 +16,34 @@ $$ L(\mathbf{w};\mathbf{x},y):=max \\{ 0,1-y\mathbf{w^{T}} \mathbf{x} \\} $$
 其中$$$z=\mathbf{w}^T \mathbf{x}$$$，默认情况下，如果$$$f(\mathbf(w)^Tx)>0.5$$$，则输出为正，否则为负，与线性支持向量机不同，逻辑回归模型的输出$$$f(z)$$$可以预测输出为正的概率。
 
 #### 1.1.3 评价矩阵
+针对二分类，MLlib支持一般的评价矩阵，包括precision,recall,F-measure,receiver operating characteristic(ROC),precision-recall curve, area under the curves(AUC)，AUC主要用来比较多个模型之间的表现，而precision/recall/F-measure主要用来在预测模型中确定合适的阈值。
+
+```
+# -*- coding:utf-8 -*-
+
+from pyspark.mllib.classification import LogisticRegressionWithSGD
+from pyspark.mllib.regression import LabeledPoint
+from numpy import array
+import pyspark
+
+sc = pyspark.SparkContext()
+
+# Parse data function
+def parsePoint(line):
+    values = [float(x) for x in line.split(' ')]
+    return LabeledPoint(values[0], values[1:])
+
+# Load data
+data = sc.textFile('data/mllib/sample_svm_data.txt')
+parsedData = data.map(parsePoint)
+
+# Build the model
+model = LogisticRegressionWithSGD.train(parsedData)
+
+# Evaluating the model on training data
+labelsAndPreds = parsedData.map(lambda p: (p.label, model.predict(p.features)))
+
+trainErr = labelsAndPreds.filter(lambda (v, p): v != p).count() / float(parsedData.count())
+
+print 'Training Error = ' + str(trainErr)
+```
