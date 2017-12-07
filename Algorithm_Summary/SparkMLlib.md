@@ -1,5 +1,5 @@
-Spark MLlib中算法总结
--------------------------  
+# Spark MLlib中算法总结
+
 ## 1. 线性模型  
 ### 1.1 二分类（Binary classification）  
 二分类算法是将目标分为两个类别，正例和负例。MLlib中包含两种线性二分类算法：线性支持向量机（linear support vector machines）和逻辑回归（logistic regression）。对于这两种方法，MLlib支持L1和L2正则变体  
