@@ -13,7 +13,7 @@ $$ L(\mathbf{w};\mathbf{x},y):=max \\{ 0,1-y\mathbf{w^{T}} \mathbf{x} \\} $$
 #### 1.1.2 逻辑回归
 逻辑回归在二分类中广泛应用，损失函数表示如下：$$L(\mathbf{w};\mathbf{x},y):=log(1+e^{-y\mathbf{w}^T \mathbf{x}})$$
 逻辑回归算法输出为逻辑回归模型，给定一个数据点$$$\mathbf{x}$$$，模型运用逻辑方程进行预测$$f(z)={1\over 1-e^{-z}}$$
-其中$$$z=\mathbf{w}^T \mathbf{x}$$$，默认情况下，如果$$$f(\mathbf(w)^Tx)>0.5$$$，则输出为正，否则为负，与线性支持向量机不同，逻辑回归模型的输出$$$f(z)$$$可以预测输出为正的概率。
+其中$$$z=\mathbf{w}^T \mathbf{x}$$$，默认情况下，如果$$$f(\mathbf w^Tx)>0.5$$$，则输出为正，否则为负，与线性支持向量机不同，逻辑回归模型的输出$$$f(z)$$$可以预测输出为正的概率。
 
 #### 1.1.3 评价矩阵
 针对二分类，MLlib支持一般的评价矩阵，包括precision,recall,F-measure,receiver operating characteristic(ROC),precision-recall curve, area under the curves(AUC)，AUC主要用来比较多个模型之间的表现，而precision/recall/F-measure主要用来在预测模型中确定合适的阈值。
@@ -42,8 +42,12 @@ model = LogisticRegressionWithSGD.train(parsedData)
 
 # Evaluating the model on training data
 labelsAndPreds = parsedData.map(lambda p: (p.label, model.predict(p.features)))
-
 trainErr = labelsAndPreds.filter(lambda (v, p): v != p).count() / float(parsedData.count())
-
 print 'Training Error = ' + str(trainErr)
 ```
+
+
+## 决策树
+决策树及其组合广泛应用在机器学习中的分类和回归任务中，机器学习之所以大规模应用是因为其容易解释、容易处理类别特征
+
+
