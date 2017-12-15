@@ -14,8 +14,8 @@ from thrift.protocol import TBinaryProtocol
 
 def ReadHiveTest(sql):
     try:
-        tSocket = TSocket.TSocket('localhost',10008)
-        tTransport = TTransport.TBufferedTransport(tSocket)
+        tSocket = TSocket.TSocket('localhost',10008) # hive machine address and port
+        tTransport = TTransport.TBufferedTransport(tSocket)
         protocol = TBinaryProtocol.TBinaryProtocol(tTransport)
         client = ThriftHive.Client(protocol)
         tTransport.open()
