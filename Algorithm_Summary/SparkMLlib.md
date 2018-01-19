@@ -17,9 +17,19 @@
 则输出为正，否则为负。
 
 #### 1.1.2 逻辑回归
-逻辑回归在二分类中广泛应用，损失函数表示如下：$$L(\mathbf{w};\mathbf{x},y):=log(1+e^{-y\mathbf{w}^T \mathbf{x}})$$
-逻辑回归算法输出为逻辑回归模型，给定一个数据点$$$\mathbf{x}$$$，模型运用逻辑方程进行预测$$f(z)={1\over 1-e^{-z}}$$
-其中$$$z=\mathbf{w}^T \mathbf{x}$$$，默认情况下，如果$$$f(\mathbf w^Tx)>0.5$$$，则输出为正，否则为负，与线性支持向量机不同，逻辑回归模型的输出$$$f(z)$$$可以预测输出为正的概率。
+逻辑回归在二分类中广泛应用，损失函数表示如下：
+<a href="https://www.codecogs.com/eqnedit.php?latex=L(\mathbf{w};\mathbf{x},y):=log(1&plus;e^{-y\mathbf{w}^T&space;\mathbf{x}})" target="_blank"><img src="https://latex.codecogs.com/gif.latex?L(\mathbf{w};\mathbf{x},y):=log(1&plus;e^{-y\mathbf{w}^T&space;\mathbf{x}})" title="L(\mathbf{w};\mathbf{x},y):=log(1+e^{-y\mathbf{w}^T \mathbf{x}})" /></a>
+逻辑回归算法输出为逻辑回归模型，给定一个数据点
+<a href="https://www.codecogs.com/eqnedit.php?latex=\mathbf{x}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\mathbf{x}" title="\mathbf{x}" /></a>
+，模型运用逻辑方程进行预测
+<a href="https://www.codecogs.com/eqnedit.php?latex=f(z)={1\over&space;1-e^{-z}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f(z)={1\over&space;1-e^{-z}}" title="f(z)={1\over 1-e^{-z}}" /></a>
+其中
+<a href="https://www.codecogs.com/eqnedit.php?latex=z=\mathbf{w}^T&space;\mathbf{x}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?z=\mathbf{w}^T&space;\mathbf{x}" title="z=\mathbf{w}^T \mathbf{x}" /></a>
+，默认情况下，如果
+<a href="https://www.codecogs.com/eqnedit.php?latex=f(\mathbf&space;w^Tx)>0.5" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f(\mathbf&space;w^Tx)>0.5" title="f(\mathbf w^Tx)>0.5" /></a>
+，则输出为正，否则为负，与线性支持向量机不同，逻辑回归模型的输出
+<a href="https://www.codecogs.com/eqnedit.php?latex=f(z)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f(z)" title="f(z)" /></a>
+可以预测输出为正的概率。
 
 #### 1.1.3 评价矩阵
 针对二分类，MLlib支持一般的评价矩阵，包括precision,recall,F-measure,receiver operating characteristic(ROC),precision-recall curve, area under the curves(AUC)，AUC主要用来比较多个模型之间的表现，而precision/recall/F-measure主要用来在预测模型中确定合适的阈值。
