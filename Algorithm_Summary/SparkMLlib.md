@@ -6,9 +6,15 @@
 
 #### 1.1.1 线性支持向量机（SVMs）  
 线性支持向量机（[SVMs](https://en.wikipedia.org/wiki/Support_vector_machine#Linear_SVM)）是用于大规模分类任务的标准方法，他的损失函数如下：  
-$$ L(\mathbf{w};\mathbf{x},y):=max \\{ 0,1-y\mathbf{w^{T}} \mathbf{x} \\} $$
-线性SVMs在默认情况下使用L2正则化，同时也可选L1正则，在这种情况下问题就变成线性问题。  
-线性支持向量机算法输出SVM模型，输入一个未知的数据点$$$\mathbf{x}$$$，模型根据$$$\mathbf{w^T}\mathbf{x}$$$预测结果，默认情况下如果$$$\mathbf{w^T}\mathbf{x}>=0$$$则输出为正，否则为负。
+<a href="https://www.codecogs.com/eqnedit.php?latex=L(\mathbf{w};\mathbf{x},y):=max&space;\{&space;0,1-y\mathbf{w^{T}}&space;\mathbf{x}&space;\}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?L(\mathbf{w};\mathbf{x},y):=max&space;\{&space;0,1-y\mathbf{w^{T}}&space;\mathbf{x}&space;\}" title="L(\mathbf{w};\mathbf{x},y):=max \{ 0,1-y\mathbf{w^{T}} \mathbf{x} \}" /></a>
+线性SVMs在默认情况下使用L2正则化，同时也可选L1正则，在这种情况下问题就变成线性问题。 
+线性支持向量机算法输出SVM模型，输入一个未知的数据点
+<a href="https://www.codecogs.com/eqnedit.php?latex=\mathbf{x}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\mathbf{x}" title="\mathbf{x}" /></a>
+，模型根据
+<a href="https://www.codecogs.com/eqnedit.php?latex=\mathbf{w^T}\mathbf{x}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\mathbf{w^T}\mathbf{x}" title="\mathbf{w^T}\mathbf{x}" /></a>
+预测结果，默认情况下如果
+<a href="https://www.codecogs.com/eqnedit.php?latex=\mathbf{w^T}\mathbf{x}>=0" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\mathbf{w^T}\mathbf{x}>=0" title="\mathbf{w^T}\mathbf{x}>=0" /></a>
+则输出为正，否则为负。
 
 #### 1.1.2 逻辑回归
 逻辑回归在二分类中广泛应用，损失函数表示如下：$$L(\mathbf{w};\mathbf{x},y):=log(1+e^{-y\mathbf{w}^T \mathbf{x}})$$
