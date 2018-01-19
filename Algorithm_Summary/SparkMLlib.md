@@ -5,7 +5,7 @@
 二分类算法是将目标分为两个类别，正例和负例。MLlib中包含两种线性二分类算法：线性支持向量机（linear support vector machines）和逻辑回归（logistic regression）。对于这两种方法，MLlib支持L1和L2正则变体  
 
 #### 1.1.1 线性支持向量机（SVMs）  
-线性支持向量机（[SVMs](https://en.wikipedia.org/wiki/Support_vector_machine#Linear_SVM)）是用于大规模分类任务的标准方法，他的损失函数如下：  
+线性支持向量机（[SVMs](https://en.wikipedia.org/wiki/Support_vector_machine#Linear_SVM)）是用于大规模分类任务的标准方法，他的损失函数如下：
 <a href="https://www.codecogs.com/eqnedit.php?latex=L(\mathbf{w};\mathbf{x},y):=max&space;\{&space;0,1-y\mathbf{w^{T}}&space;\mathbf{x}&space;\}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?L(\mathbf{w};\mathbf{x},y):=max&space;\{&space;0,1-y\mathbf{w^{T}}&space;\mathbf{x}&space;\}" title="L(\mathbf{w};\mathbf{x},y):=max \{ 0,1-y\mathbf{w^{T}} \mathbf{x} \}" /></a>
 线性SVMs在默认情况下使用L2正则化，同时也可选L1正则，在这种情况下问题就变成线性问题。 
 线性支持向量机算法输出SVM模型，输入一个未知的数据点
