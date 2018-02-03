@@ -7,3 +7,6 @@
 [tableausoftware](http://www.tableausoftware.com/public/)  
 [densitydesign](http://raw.densitydesign.org/)
 [adobe](http://www.adobe.com/products/illustrator.html)
+
+# 机器学习数据源
+[UCI](http://archive.ics.uci.edu/ml/index.php)
