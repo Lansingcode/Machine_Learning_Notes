@@ -237,7 +237,7 @@ class Feature_Discretization:
                 segment_entropy = float(Ldata.shape[0]) / dataset.shape[0] * left_entropy + \
                                   float(Rdata.shape[0]) / dataset.shape[0] * right_entropy
                 entropy_increment = org_entropy - segment_entropy
-                if entropy_increment >= max_entropy_increment:
+                if entropy_increment > max_entropy_increment:
                     max_entropy_increment = entropy_increment
                     max_entropy_point = p * self.min_interval + feature_min
             self.segment_points.append(max_entropy_point)
@@ -279,7 +279,7 @@ class Feature_Discretization:
 if __name__ == '__main__':
     x = np.array([5, 4, 3, 2, 1, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18])
     y = np.array([0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0])
-    fd = Feature_Discretization(x, y, 10, min_interval=0.5)
+    fd = Feature_Discretization(x, y, 5, min_interval=0.5)
     sp = fd.feature_discretization()
     print sp
     newlist = fd.x_interval_replace()
