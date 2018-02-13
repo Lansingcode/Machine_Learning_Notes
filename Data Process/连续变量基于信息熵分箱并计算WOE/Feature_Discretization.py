@@ -196,7 +196,7 @@ class Feature_Discretization:
         self.min_interval = min_interval
         self.dataset = pd.DataFrame([x, y], index=['feature', 'label']).T.sort_values(by='feature')
         self.segment_points = [self.dataset.feature.min() - min_interval]
-        self.segments = segments
+        self.segments = segments-1
         self.count = 0
 
     def feature_discretization(self, dataset=None):
@@ -242,8 +242,8 @@ class Feature_Discretization:
                     max_entropy_point = p * self.min_interval + feature_min
             self.segment_points.append(max_entropy_point)
 
-            Ldata = dataset[dataset.feature <= segment_point]  # 小于分割点的数据
-            Rdata = dataset[dataset.feature > segment_point]  # 大于分割点的数据
+            Ldata = dataset[dataset.feature <= max_entropy_point]  # 小于分割点的数据
+            Rdata = dataset[dataset.feature > max_entropy_point]  # 大于分割点的数据
             if Ldata.shape[0]>Rdata.shape[0]:
                 self.feature_discretization(Ldata)
                 self.feature_discretization(Rdata)
@@ -279,7 +279,7 @@ class Feature_Discretization:
 if __name__ == '__main__':
     x = np.array([5, 4, 3, 2, 1, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18])
     y = np.array([0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0])
-    fd = Feature_Discretization(x, y, 5, min_interval=0.5)
+    fd = Feature_Discretization(x, y, 10, min_interval=0.5)
     sp = fd.feature_discretization()
     print sp
     newlist = fd.x_interval_replace()
