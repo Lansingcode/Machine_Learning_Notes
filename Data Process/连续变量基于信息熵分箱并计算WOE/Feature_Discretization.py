@@ -196,11 +196,16 @@ class Feature_Discretization:
         self.min_interval = min_interval
         self.dataset = pd.DataFrame([x, y], index=['feature', 'label']).T.sort_values(by='feature')
         self.segment_points = [self.dataset.feature.min() - min_interval]
-        self.segments = segments + 1
+        self.segments = segments
         self.count = 0
 
     def feature_discretization(self, dataset=None):
-        self.count += 1
+        '''
+        特征值离散化
+        :param dataset: 数据集
+        :return:
+        '''
+        # self.count += 1
         if self.count >= self.segments:
             self.segment_points.append(self.dataset.feature.max())
             self.segment_points = sorted(set(self.segment_points))
@@ -210,8 +215,9 @@ class Feature_Discretization:
 
         org_entropy = self.calc_entropy(dataset)
         if org_entropy > 0:
+            self.count += 1
             feature_min = dataset.feature.min()  # 特征最小值
-            feature_max = dataset.feature.max()  # 特征最小值
+            feature_max = dataset.feature.max()  # 特征最大值
             intervals = (feature_max - feature_min) / float(self.min_interval)
             max_entropy_increment = 0.0
             max_entropy_point = 0
@@ -228,22 +234,26 @@ class Feature_Discretization:
                 else:
                     right_entropy = 0
 
-                segment_entropy = float(Ldata.shape[0]) / dataset.shape[0] * left_entropy + float(Rdata.shape[0]) / \
-                                                                                            dataset.shape[
-                                                                                                0] * right_entropy
+                segment_entropy = float(Ldata.shape[0]) / dataset.shape[0] * left_entropy + \
+                                  float(Rdata.shape[0]) / dataset.shape[0] * right_entropy
                 entropy_increment = org_entropy - segment_entropy
                 if entropy_increment >= max_entropy_increment:
                     max_entropy_increment = entropy_increment
                     max_entropy_point = p * self.min_interval + feature_min
             self.segment_points.append(max_entropy_point)
 
-            self.feature_discretization(dataset[dataset.feature <= max_entropy_point])
-            self.feature_discretization(dataset[dataset.feature > max_entropy_point])
+            Ldata = dataset[dataset.feature <= segment_point]  # 小于分割点的数据
+            Rdata = dataset[dataset.feature > segment_point]  # 大于分割点的数据
+            if Ldata.shape[0]>Rdata.shape[0]:
+                self.feature_discretization(Ldata)
+                self.feature_discretization(Rdata)
+            else:
+                self.feature_discretization(Rdata)
+                self.feature_discretization(Ldata)
 
             self.segment_points.append(self.dataset.feature.max())
             self.segment_points = sorted(set(self.segment_points))
             return self.segment_points
-
         else:
             return self.segment_points
 
@@ -251,9 +261,8 @@ class Feature_Discretization:
         whole_length = dataset.shape[0] + 0.0
         org_label_count = dataset.label.value_counts()
         if dataset.label.value_counts().shape[0] == 2:
-            return -(org_label_count[0] / whole_length) * log(org_label_count[0] / whole_length, 2) - (org_label_count[
-                                                                                                           1] / whole_length) * log(
-                org_label_count[1] / whole_length, 2)
+            return -(org_label_count[0] / whole_length) * log(org_label_count[0] / whole_length, 2) - \
+                   (org_label_count[1] / whole_length) * log(org_label_count[1] / whole_length, 2)
         else:
             return 0
 
