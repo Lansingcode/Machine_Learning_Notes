@@ -5,4 +5,5 @@
 
 
 [一文读懂FM算法优势，并用python实现！（附代码）](https://baijiahao.baidu.com/s?id=1589879343345420975&wfr=spider&for=pc)  
-[Introductory Guide – Factorization Machines & their application on huge datasets (with codes in Python)](https://www.analyticsvidhya.com/blog/2018/01/factorization-machines/)
+[Introductory Guide – Factorization Machines & their application on huge datasets (with codes in Python)](https://www.analyticsvidhya.com/blog/2018/01/factorization-machines/)  
+[【推荐系统】Factorization Machine](https://blog.csdn.net/shenxiaolu1984/article/details/78740481)
