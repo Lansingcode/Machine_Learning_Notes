@@ -13,4 +13,5 @@ https://ask.hellobi.com/blog/python_shequ/11625
 http://wepon.me/  
 
 ### 5. Kaggle实战——点击率预估  
-https://blog.csdn.net/chengcheng1394/article/details/78940565
+https://blog.csdn.net/chengcheng1394/article/details/78940565  
+[腾讯大数据：CTR预估中GBDT与LR融合方案](http://www.cbdio.com/BigData/2015-08/27/content_3750170.htm)
