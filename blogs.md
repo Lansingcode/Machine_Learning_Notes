@@ -9,4 +9,7 @@
 https://ask.hellobi.com/blog/python_shequ/11625
 
 ### 4. wepon大神的博客
-http://wepon.me/
+http://wepon.me/  
+
+### 5. Kaggle实战——点击率预估  
+https://blog.csdn.net/chengcheng1394/article/details/78940565
