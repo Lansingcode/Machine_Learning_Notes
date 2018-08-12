@@ -22,4 +22,7 @@ https://blog.csdn.net/chengcheng1394/article/details/78940565
 [Factorization Machines 学习笔记（一）预测任务](https://blog.csdn.net/itplus/article/details/40534885)  
 [Factorization Machines 学习笔记（二）模型方程](https://blog.csdn.net/itplus/article/details/40534923)  
 [Factorization Machines 学习笔记（三）回归和分类](https://blog.csdn.net/itplus/article/details/40534951)  
-[Factorization Machines 学习笔记（四）学习算法](https://blog.csdn.net/itplus/article/details/40536025)
+[Factorization Machines 学习笔记（四）学习算法](https://blog.csdn.net/itplus/article/details/40536025)  
+
+### 7. 手把手教你用R语言建立信用评分模型  
+[手把手教你用R语言建立信用评分模型（一）](http://www.dataguru.cn/article-10478-1.html)  
