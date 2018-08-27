@@ -4,4 +4,4 @@
 
 [Jupyter Notebook 添加目录插件](https://www.jianshu.com/p/7687c6bec65e)  
 
-[Python第三方插件网站](https://www.lfd.uci.edu/~gohlke/pythonlibs/#statsmodels)
+[Python第三方库网站](https://www.lfd.uci.edu/~gohlke/pythonlibs/#statsmodels)
